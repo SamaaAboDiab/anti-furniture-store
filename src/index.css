@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-cream-50 font-body text-base text-ink-900 antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display font-normal;
+    font-optical-sizing: auto;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    @apply bg-clay-500 text-white;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.clay.600");
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-4 sm:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-clay-500 px-6 text-sm font-medium text-white shadow-soft transition-colors duration-200 hover:bg-clay-600 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex min-h-[40px] items-center justify-center gap-2 rounded-lg border border-ink-900/15 bg-white px-5 text-sm font-medium text-ink-900 transition-colors duration-200 hover:border-clay-500 hover:text-clay-600;
+  }
+  .btn-ghost {
+    @apply inline-flex min-h-[44px] items-center gap-1.5 text-sm font-medium text-ink-900 transition-colors duration-200 hover:text-clay-600;
+  }
+  .link-underline {
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-clay-600 underline decoration-clay-600/30 underline-offset-4 transition-colors duration-200 hover:decoration-clay-600;
+  }
+
+  .field {
+    @apply block min-h-[48px] w-full rounded-lg border border-ink-900/10 bg-white px-4 py-3 text-base text-ink-900 placeholder:text-ink-300 transition-colors duration-200 focus:border-clay-500 focus:outline-none focus:ring-2 focus:ring-clay-500/20;
+  }
+  .field-label {
+    @apply mb-2 block text-sm font-medium text-ink-700;
+  }
+}
